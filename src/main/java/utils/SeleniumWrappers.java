@@ -4,19 +4,29 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.TestException;
 
 import java.time.Duration;
 
 public class SeleniumWrappers extends BaseTest{
-
+    /**
+     * Custom click method, that waits for element to visible before triggering a click from
+     * Selenium
+     * @param element --> WebElement to act on
+     */
     public void click(WebElement element){
+        System.out.println("Called method <click> on element " + element.getAttribute("outerHTML"));
         try{
-            //WebElement element = driver.findElement(locator);
             waitForElementToBeVisible(element);
             element.click();
         }
         catch (StaleElementReferenceException e){
+            System.out.println("StaleElement occured on element " + element.getAttribute("outerHTML"));
             element.click();
+        }
+        catch (Exception e){
+            System.out.println("Error on element " + element.getAttribute("outerHTML"));
+            throw new TestException(e.getMessage());
         }
     }
 
@@ -32,8 +42,12 @@ public class SeleniumWrappers extends BaseTest{
     }
 
     public void waitForElementToBeVisible(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(element));
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (NoSuchElementException e){
+            System.out.println("Element not found in method <waitForElementToBeVisible>" + element.getAttribute("outerHTML"));
+        }
     }
 
     public void waitForElementToBeClickable(By locator){
@@ -41,26 +55,26 @@ public class SeleniumWrappers extends BaseTest{
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public boolean isDisplayed(By locator){
-        //waitForElementToBeVisible(locator);
-        return returnElement(locator).isDisplayed();
+    public boolean isDisplayed(WebElement element){
+        waitForElementToBeVisible(element);
+        return element.isDisplayed();
     }
 
-    public String getText(By locator){
-       // waitForElementToBeVisible(locator);
-        return returnElement(locator).getText();
+    public String getText(WebElement element){
+        waitForElementToBeVisible(element);
+        return element.getText();
     }
 
-    public void hoverElement(By locator){
+    public void hoverElement(WebElement element){
         Actions action = new Actions(driver);
-        action.moveToElement(returnElement(locator)).perform();
+        action.moveToElement(element).perform();
 
     }
 
-    public void dragAndDrop(By locator, int x, int y){
+    public void dragAndDrop(WebElement element, int x, int y){
         Actions action = new Actions(driver);
        // action.dragAndDropBy(returnElement(locator),x,y).perform();
-        action.moveToElement(returnElement(locator)).clickAndHold().moveByOffset(x,y).release().perform();
+        action.moveToElement(element).clickAndHold().moveByOffset(x,y).release().perform();
     }
 
     public void scrollVertically(int pixels){
