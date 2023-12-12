@@ -6,10 +6,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import pages.BasePage;
 
 import java.io.File;
@@ -21,7 +18,7 @@ public class BaseTest {
     public static WebDriver driver;
     public BasePage app;
     @Parameters({"url"})
-    @BeforeClass(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setup(String url){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -31,7 +28,7 @@ public class BaseTest {
         app = new BasePage();
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
 
     public void tearDown() throws InterruptedException {
         Thread.sleep(4000);
