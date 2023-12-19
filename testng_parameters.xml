@@ -11,7 +11,7 @@
         <parameter name="pass" value="customer@123" />
 
         <classes>
-            <class name="tests.FindBrokenLinks" ></class>
+            <class name="tests.PlaceAnOrderTest" ></class>
         </classes>
     </test>
 

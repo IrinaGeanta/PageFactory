@@ -19,5 +19,10 @@ public class MenuPage extends SeleniumWrappers {
     @FindBy(css = "input[type='search']")
     public WebElement searchField;
 
+    @FindBy(css = "i[class*='shopping-bag']")
+    public WebElement shoppingBag;
+
+    @FindBy(css = "span[class='cart-count-icon']")
+    public WebElement cartItemNumber;
 
 }

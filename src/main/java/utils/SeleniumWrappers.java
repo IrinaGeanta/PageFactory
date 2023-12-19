@@ -68,9 +68,9 @@ public class SeleniumWrappers extends BaseTest{
         }
     }
 
-    public void waitForElementToBeClickable(By locator){
+    public void waitForElementToBeClickable(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public boolean isDisplayed(WebElement element){
@@ -79,8 +79,17 @@ public class SeleniumWrappers extends BaseTest{
     }
 
     public String getText(WebElement element){
-        waitForElementToBeVisible(element);
-        return element.getText();
+        Log.info("Called method <getText()> on element " + element.getAttribute("outerHTML"));
+        try {
+            waitForElementToBeVisible(element);
+            Log.info("<getText()> performed successfully!");
+            return element.getText();
+        }catch (Exception e){
+            Log.error("Error in method <getText()> on element " + element.getAttribute("outerHTML"));
+            Log.error(e.getMessage());
+            throw new TestException(e.getMessage());
+        }
+
     }
 
     public void hoverElement(WebElement element){
@@ -109,10 +118,10 @@ public class SeleniumWrappers extends BaseTest{
     }
 
 
-    public boolean isElementPresent(By locator){
+    public boolean isElementPresent(WebElement element){
         boolean isPresent = true;
         try{
-            driver.findElement(locator).isDisplayed();
+            element.isDisplayed();
         }catch (NoSuchElementException e){
             isPresent = false;
         }
