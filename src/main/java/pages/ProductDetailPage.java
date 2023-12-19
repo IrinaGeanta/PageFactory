@@ -16,4 +16,7 @@ public class ProductDetailPage extends SeleniumWrappers {
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement addToCartMessage;
 
+    @FindBy(xpath = "(//a[text()='View cart'])[2]")
+    public WebElement viewCart;
+
 }

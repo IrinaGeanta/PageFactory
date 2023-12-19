@@ -10,4 +10,5 @@ public class BasePage extends SeleniumWrappers {
     public CartPage cart = new CartPage();
     public CheckoutPage checkout = new CheckoutPage();
     public OrderReceivedPage orderReceived = new OrderReceivedPage();
+    public BakeryPage bakery = new BakeryPage();
 }

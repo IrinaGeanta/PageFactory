@@ -25,4 +25,7 @@ public class MenuPage extends SeleniumWrappers {
     @FindBy(css = "span[class='cart-count-icon']")
     public WebElement cartItemNumber;
 
+    @FindBy(linkText = "BAKERY")
+    public WebElement bakeryLink;
+
 }
