@@ -18,12 +18,25 @@ public class DiscountTest extends BaseTest {
 
         app.click(app.productDetail.viewCart);
 
-        assertEquals(app.cart.checkDiscount(10), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
-        app.click(app.cart.removeDiscountLink);
+           // assertEquals(app.cart.checkDiscount(10), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
+            //app.click(app.cart.removeDiscountLink);
+
+
+            for (int i = 1; i <5; i++) {
+                while(!app.isElementPresent(app.cart.removeDiscountLink)){
+                assertEquals(app.cart.checkDiscount(i * 10), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
+                app.click(app.cart.removeDiscountLink);
+            }
+
+        }
+        /*
         assertEquals(app.cart.checkDiscount(20), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
-        app.click(app.cart.removeDiscountLink);
-        assertEquals(app.cart.checkDiscount(30), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
-        app.click(app.cart.removeDiscountLink);
-        assertEquals(app.cart.checkDiscount(40), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
+            app.click(app.cart.removeDiscountLink);
+            assertEquals(app.cart.checkDiscount(30), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
+            app.click(app.cart.removeDiscountLink);
+            assertEquals(app.cart.checkDiscount(40), Double.valueOf(app.cart.totalAmount.getText().substring(1)));
+
+         */
+
     }
 }

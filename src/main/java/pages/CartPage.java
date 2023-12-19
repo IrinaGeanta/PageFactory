@@ -63,11 +63,8 @@ public class CartPage extends SeleniumWrappers {
     }
 
     public Double checkDiscount(int discount) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.stalenessOf(discountField));
-        while (!discountField.isEnabled()){
-            Thread.sleep(400);
-        }
+
+        click(discountField);
         sendKeys(discountField, "Discount" + discount);
         click(applyDiscountButton);
 
@@ -79,7 +76,7 @@ public class CartPage extends SeleniumWrappers {
         System.out.println(calculatedValue);
         waitForElementToBeClickable(applyDiscountButton);
         //Thread.sleep(2000);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOf(applyDiscountButtonAfterClick));
         return calculatedValue;
     }

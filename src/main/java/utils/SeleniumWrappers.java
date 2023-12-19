@@ -73,6 +73,11 @@ public class SeleniumWrappers extends BaseTest{
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public void waitForElementToNotBeStaled(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.stalenessOf(element));
+    }
+
     public boolean isDisplayed(WebElement element){
         waitForElementToBeVisible(element);
         return element.isDisplayed();
