@@ -9,6 +9,10 @@ import org.testng.TestException;
 import java.time.Duration;
 
 public class SeleniumWrappers extends BaseTest{
+
+    public SeleniumWrappers(WebDriver driver) {
+        this.driver = driver;
+    }
     /**
      * Custom click method, that waits for element to visible before triggering a click from
      * Selenium

@@ -25,8 +25,6 @@ public class LoginTest extends BaseTest {
     public void invalidLogin(){
         app.click(app.menu.myAccountLink);
         app.myAccount.loginInApp("blabla", "blabla");
-        assertTrue(app.isDisplayed(app.myAccount.myAccountContent));
-        app.click(app.myAccount.logoutButton);
-        assertTrue(app.isDisplayed(app.myAccount.usernameField));
+        assertTrue(app.isDisplayed(app.myAccount.errorMsg));
     }
 }

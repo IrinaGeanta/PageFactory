@@ -14,18 +14,19 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
-public class BaseTest {
-    public static WebDriver driver;
+public class BaseTest extends Driver{
+    public WebDriver driver;
     public BasePage app;
-    @Parameters({"url"})
+    @Parameters({"url", "browser"})
     @BeforeClass(alwaysRun = true)
-    public void setup(String url){
-        driver = new ChromeDriver();
+    public void setup(String url, String browser){
+        //driver = new ChromeDriver();
+        driver = initBrowser(browser);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(url);
 
-        app = new BasePage();
+        app = new BasePage(driver);
     }
 
     @AfterClass(alwaysRun = true)

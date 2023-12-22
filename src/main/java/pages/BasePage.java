@@ -1,14 +1,19 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import utils.SeleniumWrappers;
 
 public class BasePage extends SeleniumWrappers {
 
-    public MenuPage menu = new MenuPage();
-    public MyAccountPage myAccount = new MyAccountPage();
-    public ProductDetailPage productDetail = new ProductDetailPage();
-    public CartPage cart = new CartPage();
-    public CheckoutPage checkout = new CheckoutPage();
-    public OrderReceivedPage orderReceived = new OrderReceivedPage();
-    public BakeryPage bakery = new BakeryPage();
+    public BasePage(WebDriver driver){
+        super(driver);
+    }
+
+    public MenuPage menu = new MenuPage(driver);
+    public MyAccountPage myAccount = new MyAccountPage(driver);
+    public ProductDetailPage productDetail = new ProductDetailPage(driver);
+    public CartPage cart = new CartPage(driver);
+    public CheckoutPage checkout = new CheckoutPage(driver);
+    public OrderReceivedPage orderReceived = new OrderReceivedPage(driver);
+    public BakeryPage bakery = new BakeryPage(driver);
 }

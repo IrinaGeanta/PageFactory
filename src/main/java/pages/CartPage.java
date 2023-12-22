@@ -11,7 +11,8 @@ import utils.SeleniumWrappers;
 import java.time.Duration;
 
 public class CartPage extends SeleniumWrappers {
-    public CartPage(){
+    public CartPage(WebDriver driver){
+        super(driver);
         PageFactory.initElements(driver,this);
     }
 
