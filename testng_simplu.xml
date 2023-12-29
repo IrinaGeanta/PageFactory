@@ -7,11 +7,11 @@
     <listeners>
         <listener class-name="utils.TestNgListener" />
     </listeners>
-    <test name="Firefox test" >
+    <test name="Chrome test" >
 
         <parameter name = "browser" value = "chrome" />
         <classes>
-            <class name="tests.PlaceAnOrderTest" ></class>
+            <class name="tests.LoginTest" ></class>
         </classes>
     </test>
 

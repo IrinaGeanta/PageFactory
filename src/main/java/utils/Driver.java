@@ -8,18 +8,25 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
 
 public class Driver {
 
     //public WebDriver driver;
     public static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
+    RemoteWebDriver rwd;
+
     public WebDriver initBrowser(String browser){
         if(browser.equalsIgnoreCase("chrome")){
             try{
                 Log.info("Browser parameter is Chrome");
                 //driver = new ChromeDriver();
-                driver.set(new ChromeDriver(getChromeOptions()));
+                //driver.set(new ChromeDriver(getChromeOptions()));
+                rwd = new RemoteWebDriver(new URL("http://localhost:4444"),getChromeOptions());
+                driver.set(rwd);
             }catch (Exception e){
                 Log.error("Could not setup Chrome");
                 Log.error(e.getMessage());

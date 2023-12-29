@@ -44,4 +44,39 @@
 
 
 </dependencies>
+
+    <profiles>
+    <profile>
+    <id>doclint-java8-disable</id>
+    <activation>
+        <jdk>[1.8,)</jdk>
+    </activation>
+
+    <build>
+    <plugins>
+    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <configuration>
+        <doclint>none</doclint>
+    </configuration>
+    </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <testFailureIgnore>true</testFailureIgnore>
+                <useSystemClassLoader>false</useSystemClassLoader>
+                <threadCount>1</threadCount>
+                <forkCount>0</forkCount>
+                <suiteXmlFiles>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <suiteXmlFile>${suiteXML}</suiteXmlFile>
+                </suiteXmlFiles>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
+    </profile>
+    </profiles>
 </project>
