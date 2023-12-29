@@ -6,8 +6,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.BaseTest;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class PlaceAnOrderTest extends BaseTest {
     @Parameters({"user","pass"})
@@ -42,7 +41,8 @@ public class PlaceAnOrderTest extends BaseTest {
         app.click(app.checkout.termsAndConditionsCheckbox);
         app.click(app.checkout.checkoutButton);
 
-        assertEquals(app.orderReceived.confirmOrderText.getText(), "");
+        assertEquals(app.orderReceived.confirmOrderText.getText(), "Thank you. Your order has been received.");
+        assertFalse(app.orderReceived.orderNumber.getText().equals(null));
 
     }
 }

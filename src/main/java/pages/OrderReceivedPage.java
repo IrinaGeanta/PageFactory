@@ -15,4 +15,7 @@ public class OrderReceivedPage extends SeleniumWrappers {
 
     @FindBy(css = "p[class*='order-received']")
     public WebElement confirmOrderText;
+
+    @FindBy(xpath = "//li[contains(text(),'Order number:')]/strong")
+    public WebElement orderNumber;
 }

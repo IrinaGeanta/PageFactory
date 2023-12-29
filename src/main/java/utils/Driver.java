@@ -55,14 +55,14 @@ public class Driver {
     //option classes
     public static ChromeOptions getChromeOptions(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--window-size=1580,1280");
         return options;
     }
 
     public static FirefoxOptions getFirefoxOptions(){
         FirefoxBinary binary = new FirefoxBinary();
-        binary.addCommandLineOptions("--headless");
+        //binary.addCommandLineOptions("--headless");
         FirefoxOptions options = new FirefoxOptions();
         options.setBinary(binary);
         return options;
@@ -70,7 +70,7 @@ public class Driver {
 
     public static EdgeOptions getEdgeOptions(){
         EdgeOptions options = new EdgeOptions();
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--window-size=1580,1280");
         return options;
     }

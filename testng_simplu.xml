@@ -9,9 +9,9 @@
     </listeners>
     <test name="Firefox test" >
 
-        <parameter name = "browser" value = "firefox" />
+        <parameter name = "browser" value = "chrome" />
         <classes>
-            <class name="tests.LoginTest" ></class>
+            <class name="tests.PlaceAnOrderTest" ></class>
         </classes>
     </test>
 
