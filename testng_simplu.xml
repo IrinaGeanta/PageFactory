@@ -11,7 +11,7 @@
 
         <parameter name = "browser" value = "chrome" />
         <classes>
-            <class name="tests.LoginTest" ></class>
+            <class name="tests.WishlistTest" ></class>
         </classes>
     </test>
 

@@ -30,4 +30,22 @@ public class MenuPage extends SeleniumWrappers {
     @FindBy(linkText = "BAKERY")
     public WebElement bakeryLink;
 
+    @FindBy(xpath = "//span[contains(text(),'CATEGORIES')]")
+    public WebElement allCategoriesMenu;
+
+    @FindBy(linkText = "Fruits & Vegetables")
+    public WebElement fruitsAndVegetables;
+
+    @FindBy(linkText = "Breakfast & Dairy")
+    public WebElement breakfastAndDiary;
+
+    @FindBy(linkText = "Biscuits & Snacks")
+    public WebElement biscuitsAndSnacks;
+
+    @FindBy(linkText = "Beverages")
+    public WebElement beverages;
+
+    @FindBy(linkText = "Wishlist")
+    public WebElement wishlistLink;
+
 }

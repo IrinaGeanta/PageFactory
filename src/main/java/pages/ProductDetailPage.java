@@ -21,4 +21,10 @@ public class ProductDetailPage extends SeleniumWrappers {
     @FindBy(xpath = "(//a[text()='View cart'])[2]")
     public WebElement viewCart;
 
+    @FindBy(xpath = "(//span[contains(@class,'add_to_wishlist')])[2]")
+    public WebElement addToWishlist;
+
+    @FindBy(xpath = "//button[contains(text(),'Close')]")
+    public WebElement closeButtonOnWishlist;
+
 }

@@ -16,4 +16,8 @@ public class BasePage extends SeleniumWrappers {
     public CheckoutPage checkout = new CheckoutPage(driver);
     public OrderReceivedPage orderReceived = new OrderReceivedPage(driver);
     public BakeryPage bakery = new BakeryPage(driver);
+    public FruitsVegetablesPage fruitsVegetables = new FruitsVegetablesPage(driver);
+    public BreakfastDiaryPage breakfastDiary = new BreakfastDiaryPage(driver);
+    public BiscuitsSnacksPage biscuitsSnacks= new BiscuitsSnacksPage(driver);
+    public BeveragePage beverage = new BeveragePage(driver);
 }
