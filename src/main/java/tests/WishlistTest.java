@@ -48,8 +48,6 @@ public class WishlistTest extends BaseTest {
     @Parameters
     @Test(priority = 2, dataProvider = "foodToAdd")
     public void addToWishlist(WebElement foodCategory, WebElement food){
-        app.click(app.menu.shoppingBag);
-        app.cart.emptyCart();
 
         app.click(app.menu.allCategoriesMenu);
         app.click(foodCategory);
@@ -88,6 +86,8 @@ public class WishlistTest extends BaseTest {
         assertTrue(app.wishlist.message.getText().equalsIgnoreCase("Product “Zevia Kidz Strawberry Lemonade Zero Calorie Soda” could not be added to cart because some requirements are not met."));
         assertEquals(app.menu.cartItemNumber.getText(),"3");
 
+        app.click(app.menu.shoppingBag);
+        app.cart.emptyCart();
 
     }
 }
