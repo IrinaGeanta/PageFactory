@@ -20,4 +20,5 @@ public class BasePage extends SeleniumWrappers {
     public BreakfastDiaryPage breakfastDiary = new BreakfastDiaryPage(driver);
     public BiscuitsSnacksPage biscuitsSnacks= new BiscuitsSnacksPage(driver);
     public BeveragePage beverage = new BeveragePage(driver);
+    public WishlistPage wishlist = new WishlistPage(driver);
 }
