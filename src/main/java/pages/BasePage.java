@@ -21,4 +21,6 @@ public class BasePage extends SeleniumWrappers {
     public BiscuitsSnacksPage biscuitsSnacks= new BiscuitsSnacksPage(driver);
     public BeveragePage beverage = new BeveragePage(driver);
     public WishlistPage wishlist = new WishlistPage(driver);
+    public BlogPage blog = new BlogPage(driver);
+    public BlogDetailPage blogDetail = new BlogDetailPage(driver);
 }

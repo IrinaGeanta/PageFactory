@@ -18,6 +18,9 @@ public class MenuPage extends SeleniumWrappers {
     @FindBy(linkText = "My account")
     public WebElement myAccountLink;
 
+    @FindBy(linkText = "BLOG")
+    public WebElement blogLink;
+
     @FindBy(css = "input[type='search']")
     public WebElement searchField;
 
