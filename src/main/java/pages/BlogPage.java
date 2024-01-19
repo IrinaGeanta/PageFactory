@@ -15,8 +15,14 @@ public class BlogPage extends SeleniumWrappers {
         PageFactory.initElements(driver,this);
     }
 
-public List<WebElement> articleItems(){
-      List<WebElement> articles = driver.findElements(By.xpath("//div[@class='site-posts']/article)" ));
-      return articles;
+public int getNumberOfArticles(){
+      List<WebElement> articles = driver.findElements(By.xpath("//div[@class='site-posts']/article" ));
+      return articles.size();
 }
+
+public WebElement getArticle(int i){
+        WebElement article = driver.findElement(By.xpath("(//div[@class='site-posts']/article)["+i+"]" ));
+        return article;
+}
+
 }

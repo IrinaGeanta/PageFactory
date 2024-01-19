@@ -29,4 +29,7 @@ public class BlogDetailPage extends SeleniumWrappers {
         WebElement nameAfterComment = driver.findElement(By.xpath("//a[text()='" + name + "']"));
         return nameAfterComment;
     }
+
+    @FindBy(xpath = "//em[text()='Your comment is awaiting moderation.']")
+    public WebElement messageAfterComment;
 }
